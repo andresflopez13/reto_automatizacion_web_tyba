@@ -1,0 +1,49 @@
+plugins {
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.5.0"
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+defaultTasks 'clean','test','aggregate'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    serenityVersion = '3.5.0'
+    serenityCucumberVersion = '3.5.0'
+    slf4jVersion = '2.0.6'
+}
+
+dependencies {
+    implementation group: 'net.serenity-bdd',       name: 'serenity-core',            version: "$rootProject.ext.serenityVersion"
+    implementation group: 'net.serenity-bdd',       name: 'serenity-cucumber',        version: "$rootProject.ext.serenityCucumberVersion"
+    implementation group: 'net.serenity-bdd',       name: 'serenity-screenplay',      version: "$rootProject.ext.serenityVersion"
+    implementation group: 'net.serenity-bdd',       name: 'serenity-screenplay-rest', version: "$rootProject.ext.serenityVersion"
+    implementation group: 'net.serenity-bdd',       name: 'serenity-ensure',          version: "$rootProject.ext.serenityVersion"
+    implementation group: 'net.serenity-bdd',       name: 'serenity-junit5',          version: "$rootProject.ext.serenityVersion"
+    implementation group: 'org.slf4j',              name: 'slf4j-api',                version: "$rootProject.ext.slf4jVersion"
+    implementation group: 'com.github.javafaker',   name: 'javafaker',                version: '1.0.2'
+}
+
+test {
+    testLogging.showStandardStreams = true
+    useJUnit()
+}
+
+group 'co.com.tyba.reto.web'
+version '1.0-SNAPSHOT'
+
+serenity {
+    reports = ["single-page-html"]
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
+test.finalizedBy(reports)
