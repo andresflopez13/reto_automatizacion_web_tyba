@@ -18,5 +18,6 @@ public class LoginMainPage {
             Target.the("Input user password login").located(By.id("password"));
 
     public static final Target LABEL_ERROR =
-            Target.the("Label error login").located(By.className("error-button"));
+            Target.the("Label error login").
+                    locatedBy("//span[contains(text(),'Epic sadface')]");
 }

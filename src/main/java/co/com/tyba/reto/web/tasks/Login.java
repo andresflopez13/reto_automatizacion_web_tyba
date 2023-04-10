@@ -28,8 +28,7 @@ public class Login implements Task {
                 Enter.theValue(user.getUserName()).into(INPUT_USER_NAME),
                 WaitUntil.the(INPUT_PASSWORD, isVisible()),
                 Enter.theValue(user.getPassword()).into(INPUT_PASSWORD),
-                Click.on(BUTTON_LOGIN),
-                WaitUntil.the(ITEM_PRODUCTS, isVisible()).forNoMoreThan(7).seconds());
+                Click.on(BUTTON_LOGIN));
     }
 
     public static Login with(User user) {

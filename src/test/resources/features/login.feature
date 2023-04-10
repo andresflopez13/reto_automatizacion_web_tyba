@@ -9,3 +9,8 @@ Característica: Autenticación en la pagina de Swag Labs
     Dado que "Andres" desea loguearse en Swag Labs
     Cuando ingresa el email y contrasenia correcta
     Entonces verifica que el usuario se autentica correctamente
+
+  Escenario: Intento de autenticacion con contraseña erronea
+    Dado que "Andres" desea loguearse en Swag Labs
+    Cuando ingresa el email y contrasenia incorrecta
+    Entonces verifica que se informe el error de autenticacion
