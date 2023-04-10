@@ -29,6 +29,7 @@ dependencies {
     implementation group: 'net.serenity-bdd',       name: 'serenity-junit5',          version: "$rootProject.ext.serenityVersion"
     implementation group: 'org.slf4j',              name: 'slf4j-api',                version: "$rootProject.ext.slf4jVersion"
     implementation group: 'com.github.javafaker',   name: 'javafaker',                version: '1.0.2'
+    implementation group: 'org.json',               name:'json',                      version: '20220320'
 }
 
 test {
